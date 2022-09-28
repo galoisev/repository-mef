@@ -46,8 +46,54 @@ int main()
     Matrix<double> mat_B(mat_A);
     mat_B.affichage("mat_B =");
     mat_C = mat_B;
-    mat_C.affichage("mat_C =");
+    mat_C.affichage("mat_C = mat_B");
+    
+    typedef Matrix<double> matd;
+    matd mat_D;
+    mat_D = mat_C + mat_C;
+    mat_D.affichage("mat_D = mat_C + mat_C");
+    matd mat_E;
+    mat_E = mat_C - mat_D;
+    mat_E.affichage("mat_E = mat_C - mat_D");
+    
+    mat_E.operator+=(mat_E);
+    mat_E.affichage("mat_E += mat_E");
+    
+    mat_E.operator-=(mat_E);
+    mat_E.affichage("mat_E -= mat_E");
+    
+    matd mat_F,mat_G,mat_H(2,3),mat_I(3,1),mat_HI(2,1);
+    
+    mat_B.affichage("mat_B =");
+    mat_F = mat_B*mat_B;
+    mat_F.affichage("mat_F = mat_B*mat_B");
+    
+    
+    std::cout << "\t" << mat_F(1,1) << std::endl;
+    
 
+    mat_H.set(0,0,5);mat_H.set(0,1,-2);
+    mat_H.set(1,1,4);mat_H.set(1,2,-7);
+    mat_H.affichage("mat_H=");
+    
+    mat_I.set(0,0,1);mat_I.set(1,0,1),mat_I.set(2,0,1);
+    mat_I.affichage("mat_I=");
+    
+    mat_HI.affichage("mat_HI");
+    mat_HI = mat_H*mat_I;
+    mat_HI.affichage("mat_HI = mat_H*mat_I");
+    
+    double alpha(2.0);
+    mat_HI = mat_HI/alpha;
+    mat_HI.affichage("mat_HI/alpha");
+    
+    mat_HI = mat_HI*alpha;
+    mat_HI.affichage("mat_HI*alpha");
+    
+    
+    
+    
+    
 
     cout << "\n";
     

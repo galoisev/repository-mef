@@ -14,8 +14,15 @@ class R2
         R2():x(0),y(0){}//default constructor
         R2(R a, R b):x(a),y(b){}//constructor
         R2(R2 P, R2 Q):x(Q.x-P.x),y(Q.y-P.y){}
-        R2(const R2& P)=default;//copy constructor
-        R2& operator=(const R2& P)=default;//copy assignment
+        R2(const R2& P):x(P.x),y(P.y){}
+        R2& operator=(const R2& P)
+        {
+            x = P.x;
+            y = P.y;
+            return(*this);
+        }
+        //R2(const R2& P)=default;//copy constructor g++ -std=c++11 main.cpp -o mon_executable SI LA VERSION 2017 existe !!!
+        //R2& operator=(const R2& P)=default;//copy assignment   IDEM !!!!
         
         friend std::ostream& operator<<(std::ostream& f, const R2& P)
         {

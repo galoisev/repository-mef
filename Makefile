@@ -1,5 +1,5 @@
-CC=g++
-CFLAGS=-Wall -O
+CC=g++ -std=c++11
+CFLAGS=-g -Wall -O -ansi
 LDFLAGS=
 EXEC=mon_executable
 SRC=$(wildcard *.cpp)
